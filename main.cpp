@@ -3,5 +3,6 @@
 using namespace std;
 
 int main(){
-    Player* p = new Player();
+    Player* p = new Player("p1.txt");
+    
 }
