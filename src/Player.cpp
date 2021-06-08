@@ -1,6 +1,7 @@
 #include "Player.h"
+#include "CardFactory.h"
 
-Player::Player(string sourceFilePath):monsterList(nullptr), cardList(nullptr), blood(BLOOD_PLAYER), cardCount(0){
+Player::Player(string sourceFilePath):blood(BLOOD_PLAYER), cardCount(0){
     cout << blood << endl;
     fstream file;
     string line;
@@ -14,14 +15,19 @@ Player::Player(string sourceFilePath):monsterList(nullptr), cardList(nullptr), b
     }
 
     string type;
+    int count = 0;
     while(file >> type){
-        if(type== "monster"){
-            string property;
-            file >> property;
-            MonsterCard* monster = new MonsterCard(file);
-        }
-        else{
-            MagicCard* magic = new MagicCard(file);
-        }
+        Card* card = CardFactory::generateCard(file, type);
+        cardList.push_back(card);
+    }
+}
+
+Player::~Player(){
+    for(auto &p:cardList){
+        cout << p->name << endl;
+        delete p;
+    }
+    for(auto &p:monsterList){
+        delete p;
     }
 }

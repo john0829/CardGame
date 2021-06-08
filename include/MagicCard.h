@@ -1,3 +1,5 @@
+#ifndef __MAGICCARD_H__
+#define __MAGICCARD_H__
 #include "Card.h"
 #include "Config.h"
 class MagicCard : public Card{
@@ -5,7 +7,6 @@ class MagicCard : public Card{
     public:
         MagicCard(fstream &file){
             file >> name >> effectName;
-            cout << name << endl;
-            cout << effectName << endl;
         }
 };
+#endif

@@ -9,7 +9,7 @@ INCLUDES = -I./include
 CXXFLAGS = $(INCLUDES)
 LDFLAGS = -lm
 
-all: final
+all: clean final
 
 final: $(OBJS) $(HEADS)
 	$(CXX) $(LDFLAGS) -o $@ $(OBJS)

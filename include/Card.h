@@ -2,7 +2,7 @@
 #define __CARD_H__
 #include "Config.h"
 class Card{
-    protected:
+    public:
         string name;
 
     
