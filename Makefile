@@ -1,9 +1,11 @@
-BUILD_DIR = build
 CC = g++
+SRC_DIR = src
+INC_DIR = include
+BUILD_DIR = build
 
-SRCS  = $(shell find ./src     -type f -name *.cpp)
-HEADS = $(shell find ./include -type f -name *.h)
-OBJS = $(SRCS:.cpp=.o)
+SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
+OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRC_FILES))
+INC_FILES := $(wildcard $(INC_DIR)/*.h)
 
 INCLUDES = -I./include
 CXXFLAGS = $(INCLUDES)
@@ -11,11 +13,15 @@ LDFLAGS = -lm
 
 all: clean final
 
-final: $(OBJS) $(HEADS)
-	$(CXX) $(LDFLAGS) -o $@ $(OBJS)
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	g++ $(CXXFLAGS) -c -o $@ $<
+
+final: $(OBJ_FILES) $(INC_FILES)
+	echo $(OBJ_FILES)
+	$(CXX) $(LDFLAGS) -o $@ $(OBJ_FILES)
 
 run: final
 	./final
 
 clean:
-	$(RM) $(OBJS) final
+	$(RM) $(OBJ_FILES) final
