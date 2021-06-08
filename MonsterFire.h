@@ -1,0 +1,5 @@
+class MonsterFire : public Monster{
+
+
+    
+};
