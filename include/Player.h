@@ -8,7 +8,7 @@
 class Player{
     private:
         vector<const Card*> cardList;
-        vector<const Monster*> monsterList;
+        vector<Monster*> monsterList;
         vector<int> playCardSequenceList;
         int blood;
         int cardCountOnHand;
@@ -17,6 +17,7 @@ class Player{
         const string playerName;
         friend class Rounds;
         friend class Round;
+        friend class Monster;
     public:
         Player(string, string);
         ~Player();
@@ -26,7 +27,10 @@ class Player{
         const Card* playCard();
         void showMonsters() const;
         void addMonster(Monster*);
-        void attack(const Card*, Player*);
+        void attack(Player*);
+        void decreaseAllMonstersBlood(int);
+        void decreaseBlood(int);
+        void stall(int);
 };
 
 #endif

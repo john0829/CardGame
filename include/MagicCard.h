@@ -12,9 +12,7 @@ class MagicCard : public Card{
             Card::showCardInfo();
             cout << name << " " << effectName << endl;
         }
+        void makeEffect(Player*, Player*) const;
 
-        void makeEffect(Player* myself, Player* victim) const{
-
-        }
 };
 #endif

@@ -55,18 +55,44 @@ const Card* Player::playCard(){
     return card;
 }
 
-void Player::attack(const Card* card, Player* victim){
-    card->makeEffect(this, victim);
+void Player::attack(Player* victim){
+    for(auto &p: monsterList){
+        p->attack(victim);
+    }
 }
 
 void Player::showMonsters() const{
     cout << "++++++++++++++++++++++++" << endl;
-    cout << playerName << endl;
+    cout << playerName << ": blood is " << blood << endl;
     for(auto &p: monsterList){
         p->showMonsterInfo();
     }
 }
 
+void Player::decreaseAllMonstersBlood(int number){
+    vector<Monster*>::iterator it;
+    for(it=monsterList.begin(); it != monsterList.end();){
+        bool isDead = (*it)->decreaseBlood(number);
+        //delete this monster
+        if(isDead){
+            cout << "DEAD:" << (*it)->name << endl;
+            delete (*it);
+            monsterList.erase(it);
+        }
+        else{
+            ++it;
+        }
+    }
+}
+
 void Player::addMonster(Monster* monster){
     monsterList.push_back(monster);
+}
+
+void Player::decreaseBlood(int number){
+    blood -= number;
+}
+
+void Player::stall(int number){
+    passCardCount -= number;
 }

@@ -10,6 +10,6 @@ using std::string;
 using std::fstream;
 using std::ios;
 using std::vector;
-const int BLOOD_PLAYER = 4000;
+const int BLOOD_PLAYER = 15000;
 
 #endif

@@ -21,8 +21,9 @@ final: $(OBJ_FILES) $(INC_FILES)
 	$(CXX) $(LDFLAGS) -o $@ $(OBJ_FILES)
 
 run: 
+	make clean
 	make
-	./final
+	./final > out.log
 
 #RM -> rm -rf
 clean:
