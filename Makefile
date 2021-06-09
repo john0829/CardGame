@@ -20,8 +20,14 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 final: $(OBJ_FILES) $(INC_FILES)
 	$(CXX) $(LDFLAGS) -o $@ $(OBJ_FILES)
 
-run: final
+run: 
+	make clean
+	make
 	./final
 
+#RM -> rm -rf
 clean:
 	$(RM) $(OBJ_FILES) final
+
+
+#ref:https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html

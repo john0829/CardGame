@@ -1,20 +1,20 @@
 18
 Type    Property CardName    blood    Attack     
-monster fire monster2    3000    1500       
+Magic magic4  ATTACK_MONSTER_5
+Magic magic2  MONSTER_DECREASE_1000
+monster Ice monster5    1000    1500    
+monster  Ice monster6    2500    1500   
 monster fire  monster1    5000    2200       
+Magic magic3  ATTACK_MONSTER_5
+Magic magic6  ATTACK_PlAYER_500
 monster  fire monster3    2000    1500   
+Magic magic8  STALL_PlAYER_1
+Magic magic5  ATTACK_PlAYER_300
 monster  fire monster4    4000    1500   
 monster  fire monster8    3200    1500   
-monster  fire monster6    2500    1500   
-monster Ice monster7    1700    1500    
-monster Ice  monster9    1200    1500   
-monster Ice monster5    1000    1500    
-monster Ice monster10    6000    1500   
-Magic magic2  MONSTER_DECREASE_1000
 Magic magic1  MONSTER_DECREASE_2000
-Magic magic3  ATTACK_MONSTER_5
-Magic magic4  ATTACK_MONSTER_5
-Magic magic6  ATTACK_PlAYER_500
-Magic magic5  ATTACK_PlAYER_300
-Magic magic8  STALL_PlAYER_1
+monster Ice monster7    1700    1500    
+monster fire monster2    3000    1500   
 Magic magic7  STALL_PlAYER_2
+monster Ice  monster9    1200    1500   
+monster Ice monster10    6000    1500   

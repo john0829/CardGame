@@ -8,5 +8,8 @@ class MagicCard : public Card{
         MagicCard(fstream &file){
             file >> name >> effectName;
         }
+        void showCardInfo() const {
+            cout << name << " " << effectName << endl;
+        }
 };
 #endif

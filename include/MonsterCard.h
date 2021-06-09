@@ -7,5 +7,8 @@ class MonsterCard: public Card{
         MonsterCard(fstream &file){
             file >> name >> blood >> attack;
         }
+        void showCardInfo() const {
+            cout << name << " " << blood << " " << attack << endl;
+        }
 };
 #endif

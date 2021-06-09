@@ -4,6 +4,7 @@
 class Card{
     public:
         string name;
+        virtual void showCardInfo(){};
 
     
 };
