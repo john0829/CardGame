@@ -1,7 +1,7 @@
 #ifndef __MAGICCARD_H__
 #define __MAGICCARD_H__
 #include "Card.h"
-#include "Config.h"
+
 class MagicCard : public Card{
     string effectName;
     public:
@@ -9,7 +9,12 @@ class MagicCard : public Card{
             file >> name >> effectName;
         }
         void showCardInfo() const {
+            Card::showCardInfo();
             cout << name << " " << effectName << endl;
+        }
+
+        void makeEffect(Player* myself, Player* victim) const{
+
         }
 };
 #endif

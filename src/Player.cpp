@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "CardFactory.h"
 
-Player::Player(string sourceFilePath):blood(BLOOD_PLAYER),passCardCount(0){
+Player::Player(string sourceFilePath, string pN):blood(BLOOD_PLAYER),passCardCount(0), playerName(pN){
     CardFactory *cardFactory = new CardFactory(sourceFilePath);
     while(*cardFactory){
         const Card* card = cardFactory->generateCard();
@@ -12,10 +12,10 @@ Player::Player(string sourceFilePath):blood(BLOOD_PLAYER),passCardCount(0){
 
 void Player::getOneCard(const Card* newCard){
     cardList.push_back(newCard);
-    cout << "xxx" << newCard->name << endl;
+    cout << playerName << " get a card name is: " << newCard->name << endl;
 }
 
-void Player::ListCard(){
+void Player::ListCard() const{
     for(auto &p:cardList){
         cout << p->name << endl;
     }
@@ -45,15 +45,28 @@ void Player::readPlayCardSequence(string sourceFilePath){
     file.close();
 }
 
-void Player::playCard(){
+const Card* Player::playCard(){
     int popCardID = *playCardSequenceList.begin();
-    cout<< popCardID << endl;
+    cout<< playerName << " pop a Card, Id is: " << popCardID << endl;
     const Card* card = cardList[popCardID];
-
-    // card->showCardInfo();
-
     //clean
     playCardSequenceList.erase(playCardSequenceList.begin());
     cardList.erase(cardList.begin()+popCardID);
-    delete card;
+    return card;
+}
+
+void Player::attack(const Card* card, Player* victim){
+    card->makeEffect(this, victim);
+}
+
+void Player::showMonsters() const{
+    cout << "++++++++++++++++++++++++" << endl;
+    cout << playerName << endl;
+    for(auto &p: monsterList){
+        p->showMonsterInfo();
+    }
+}
+
+void Player::addMonster(Monster* monster){
+    monsterList.push_back(monster);
 }

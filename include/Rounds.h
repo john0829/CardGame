@@ -1,6 +1,8 @@
+#ifndef __ROUNDS_H__
+#define __ROUNDS_H__
+
 #include "Player.h"
 #include "CardFactory.h"
-#include <vector>
 
 class Rounds{
     public:
@@ -13,6 +15,7 @@ class Rounds{
             Player* player1; 
             Player* player2; 
             CardFactory *cardFactory;
+            void showPlayersMonster() const;
             public:
                 Round(Player*, Player*, CardFactory*);
         };
@@ -24,3 +27,5 @@ class Rounds{
         int roundCount;
 
 };
+
+#endif

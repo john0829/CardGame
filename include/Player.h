@@ -2,12 +2,9 @@
 #define __PLATER_H__
 
 #include "Card.h"
-#include "Monster.h"
-#include "MonsterCard.h"
-#include "MagicCard.h"
 #include "Config.h"
-#include <fstream>
-#include <vector>
+#include "Monster.h"
+
 class Player{
     private:
         vector<const Card*> cardList;
@@ -17,15 +14,19 @@ class Player{
         int cardCountOnHand;
         //if == 1, player can pass the card, else, player is stalled 
         int passCardCount; 
+        const string playerName;
         friend class Rounds;
         friend class Round;
     public:
-        Player(string);
+        Player(string, string);
         ~Player();
-        void ListCard();
+        void ListCard() const;
         void getOneCard(const Card*);
         void readPlayCardSequence(string);
-        void playCard();
+        const Card* playCard();
+        void showMonsters() const;
+        void addMonster(Monster*);
+        void attack(const Card*, Player*);
 };
 
 #endif
