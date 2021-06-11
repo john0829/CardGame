@@ -14,6 +14,7 @@ class MonsterFireIce : public MonsterFire, public MonsterIce{
             iceAttackValue = _attackValue*0.8;        
         };
         virtual ~MonsterFireIce() = default;
+        virtual void showMonsterInfo() const;
 };
 
 #endif

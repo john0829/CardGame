@@ -8,6 +8,7 @@ class MonsterIce : public virtual Monster{
         MonsterIce(string _name, int _blood, int _attackValue):Monster(_name,_blood,_attackValue){};
         MonsterIce(){};
         virtual ~MonsterIce() = default;
+        virtual void showMonsterInfo() const;
 };
 
 #endif

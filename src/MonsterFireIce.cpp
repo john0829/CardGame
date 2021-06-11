@@ -7,24 +7,25 @@ void MonsterFireIce::attack(Player* victim){
     for(it = victim->monsterList.begin(); it != victim->monsterList.end();){
         bool isDead;
         if(dynamic_cast<MonsterIce*>(*it)){
-            isDead = (*it)->decreaseBlood(fireAttackValue*2);
-            isDead = (*it)->decreaseBlood(iceAttackValue);
-            // cout << "####monsterFireIce attack" << "different type!" << endl;
+            isDead = decreaseMonsterBlood((*it),fireAttackValue*2);
+            isDead = decreaseMonsterBlood((*it),iceAttackValue);
         }
         else if(dynamic_cast<MonsterFire*>(*it)){
-            isDead = (*it)->decreaseBlood(fireAttackValue);
-            isDead = (*it)->decreaseBlood(iceAttackValue*2);
-            // cout << "####monsterFireIce attack" << "different type!" << endl;
+            isDead = decreaseMonsterBlood((*it),fireAttackValue);
+            isDead = decreaseMonsterBlood((*it),iceAttackValue*2);
         }
         else{
-            // cout << "####monsterFireIce attack" << "the same type!" << endl;
-            isDead = (*it)->decreaseBlood(attackValue);
+            isDead = decreaseMonsterBlood((*it),attackValue);
         }
         //delete this monster
         deleteDeadMonster()
     }
-    if(it == victim->monsterList.end()){
+    if(it > victim->monsterList.end()){
         cout << "ATTACK PLAYER!" << endl;
-        victim->decreaseBlood(attackValue);
+        decreasePlayerBlood(victim, attackValue);
     }
+}
+
+void MonsterFireIce::showMonsterInfo() const{
+    cout << "FireIce " << name << " " << blood << " " << attackValue << endl;
 }

@@ -13,7 +13,7 @@ class MonsterCard: public Card{
         }
         void showCardInfo() const {
             Card::showCardInfo();
-            cout << name << " " << blood << " " << attack << endl;
+            cout << type <<" " << name << " " << blood << " " << attack << endl;
         }
 
         void makeEffect(Player*, Player*) const;

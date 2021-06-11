@@ -20,18 +20,14 @@ class Monster{
         int blood;
         int attackValue;
         friend class Player;
+        friend class MagicCard;
         Monster(string _name, int _blood, int _attackValue):name(_name), blood(_blood), attackValue(_attackValue){};
         Monster(){};
-        void showMonsterInfo() const{
+        virtual void showMonsterInfo() const{
             cout << name << " " << blood << " " << attackValue << endl;
         }
-
-        bool decreaseBlood(unsigned int number) {
-            blood -= number;
-            cout << "ATTACK MONSTER! Name is:" << name << ", blood:" << blood+number << " -> " << blood << endl;
-            return blood <= 0;
-        }
-
+        bool decreaseMonsterBlood(Monster*, unsigned int);
+        void decreasePlayerBlood(Player*, unsigned int);
         void showAttackInfo(Monster*, unsigned int);
         virtual void attack(Player*);
         virtual ~Monster() = default;

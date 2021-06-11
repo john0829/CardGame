@@ -10,7 +10,7 @@ class Card{
             cout << "Card name info:" << " ";
         };
 
-        virtual void makeEffect(Player*, Player*) const{
+        virtual void makeEffect(Player*, Player*)const{
         };
     
 };

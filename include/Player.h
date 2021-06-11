@@ -21,6 +21,7 @@ class Player{
         friend class MonsterFire;
         friend class MonsterIce;
         friend class MonsterFireIce;
+        friend class MagicCard;
     public:
         Player(string, string);
         ~Player();
@@ -31,9 +32,6 @@ class Player{
         void showMonsters() const;
         void addMonster(Monster*);
         void attack(Player*);
-        void decreaseAllMonstersBlood(int);
-        void decreaseBlood(int);
-        void stall(int);
         //isDEAD
         operator bool() const{
             return blood <= 0;

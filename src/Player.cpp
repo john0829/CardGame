@@ -74,31 +74,7 @@ void Player::showMonsters() const{
     }
 }
 
-void Player::decreaseAllMonstersBlood(int number){
-    vector<Monster*>::iterator it;
-    for(it=monsterList.begin(); it != monsterList.end();){
-        bool isDead = (*it)->decreaseBlood(number);
-        //delete this monster
-        if(isDead){
-            cout << "DEAD:" << (*it)->name << endl;
-            delete (*it);
-            monsterList.erase(it);
-        }
-        else{
-            ++it;
-        }
-    }
-}
-
 void Player::addMonster(Monster* monster){
     monsterList.push_back(monster);
 }
 
-void Player::decreaseBlood(int number){
-    cout << "blood: "<< blood << " -> " << blood-number <<endl;
-    blood -= number;
-}
-
-void Player::stall(int number){
-    passCardCount -= number;
-}

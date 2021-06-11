@@ -9,7 +9,7 @@ void MonsterCard::makeEffect(Player* myself, Player* victim)const{
         monster = (new MonsterFire(name, blood, attack));
     }else if(type == "Ice"){
         monster = (new MonsterIce(name, blood, attack));
-    }else if(type == "Fireice"){
+    }else if(type == "FireIce"){
         monster = (new MonsterFireIce(name, blood, attack));
     }else{
         cerr << "Monster type error in the MonsterCard" << endl;
