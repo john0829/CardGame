@@ -16,7 +16,7 @@ void Monster::attack(Player* victim){
 }
 
 void Monster::decreasePlayerBlood(Player* victim, unsigned int attackValue){
-    cout << "blood: "<< victim->blood << " -> " << (int)(victim->blood-attackValue) <<endl;
+    cout << "Player blood: "<< victim->blood << " -> " << (int)(victim->blood-attackValue) <<endl;
     victim->blood -= attackValue;
 }
 

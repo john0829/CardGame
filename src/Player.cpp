@@ -22,12 +22,15 @@ void Player::ListCard() const{
 }
 
 Player::~Player(){
-    for(auto &p:cardList){
+    for(const Card* p:cardList){
         delete p;
     }
-    for(auto &p:monsterList){
+    cardList.clear();
+    for(Monster* p:monsterList){
         delete p;
     }
+    monsterList.clear();
+    playCardSequenceList.clear();
 }
 
 void Player::readPlayCardSequence(string sourceFilePath){

@@ -3,6 +3,11 @@
 #include "MonsterFireIce.h"
 
 void MonsterFireIce::attack(Player* victim){
+    if(victim->monsterList.size() == 0){
+        cout << "ATTACK PLAYER!" << endl;
+        decreasePlayerBlood(victim, attackValue);
+        return;
+    }
     vector<Monster*>::iterator it;
     for(it = victim->monsterList.begin(); it != victim->monsterList.end();){
         bool isDead;
@@ -19,10 +24,6 @@ void MonsterFireIce::attack(Player* victim){
         }
         //delete this monster
         deleteDeadMonster()
-    }
-    if(it > victim->monsterList.end()){
-        cout << "ATTACK PLAYER!" << endl;
-        decreasePlayerBlood(victim, attackValue);
     }
 }
 

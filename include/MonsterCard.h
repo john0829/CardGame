@@ -17,5 +17,6 @@ class MonsterCard: public Card{
         }
 
         void makeEffect(Player*, Player*) const;
+        ~MonsterCard() = default;
 };
 #endif

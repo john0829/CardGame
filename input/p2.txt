@@ -1,5 +1,4 @@
 18
-Type    Property CardName    blood    Attack     
 Magic magic4  ATTACK_MONSTER_2000
 Magic magic2  MONSTER_DECREASE_1000
 monster Ice monster5    5000    1500    

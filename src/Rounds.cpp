@@ -18,6 +18,7 @@ Rounds::~Rounds(){
     for(auto &p:roundList){
         delete p;
     }
+    roundList.clear();
     delete cardFactory;
 }
 
@@ -49,7 +50,10 @@ Rounds::Round::Round(Player* p1, Player* p2, CardFactory* cf):player1(p1), playe
 
     card->showCardInfo();
     card->makeEffect(attacker, victim);
+    delete card;
     attacker->attack(victim);
+
+
 
     //give player a card
     attacker->getOneCard(cardFactory->generateCard());
@@ -67,3 +71,4 @@ void Rounds::Round::showPlayersMonster() const {
     player1->showMonsters();
     player2->showMonsters();
 }
+

@@ -18,5 +18,7 @@ class MagicCard : public Card{
         void doDecreasePlayerBlood(Player*, unsigned int)const;
         void doStallPlayer(Player*, unsigned int)const;
         bool decreaseMonsterBlood(Monster*, unsigned int)const;
+        ~MagicCard() = default;
+
 };
 #endif

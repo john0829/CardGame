@@ -48,7 +48,7 @@ bool MagicCard::decreaseMonsterBlood(Monster* monster, unsigned int attackValue)
 }
 
 void MagicCard::doDecreasePlayerBlood(Player* victim, unsigned int attackValue)const{
-    cout << "blood: "<< victim->blood << " -> " << victim->blood-attackValue <<endl;
+    cout << "Player blood: "<< victim->blood << " -> " << victim->blood-attackValue <<endl;
     victim->blood -= attackValue;
 }
 

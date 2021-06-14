@@ -12,6 +12,8 @@ class Card{
 
         virtual void makeEffect(Player*, Player*)const{
         };
+
+        virtual ~Card() = default;
     
 };
 
