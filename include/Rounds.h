@@ -18,6 +18,7 @@ class Rounds{
             void showPlayersMonster() const;
             public:
                 Round(Player*, Player*, CardFactory*);
+                bool start();
         };
 
         vector<Round*> roundList;

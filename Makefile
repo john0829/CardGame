@@ -25,6 +25,11 @@ run:
 	make
 	./final > out.log
 
+test:
+	make clean
+	make
+	valgrind --leak-check=full --show-leak-kinds=all --verbose  --log-file="logfile.out" ./final
+
 #RM -> rm -rf
 clean:
 	$(RM) $(OBJ_FILES) final

@@ -22,11 +22,11 @@ void Player::ListCard() const{
 }
 
 Player::~Player(){
-    for(const Card* p:cardList){
+    for(auto &p: cardList){
         delete p;
     }
     cardList.clear();
-    for(Monster* p:monsterList){
+    for(auto &p: monsterList){
         delete p;
     }
     monsterList.clear();
