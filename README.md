@@ -1,4 +1,4 @@
-# CardGame
+# Yu-Gi-Oh CardGame
 2021 NYCU ECE OOP FINAL 
 
 This is an simple OOP program which is based on Yu-Gi-Oh!.
