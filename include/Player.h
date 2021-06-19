@@ -17,10 +17,6 @@ class Player{
         const string playerName;
         friend class Rounds;
         friend class Round;
-        friend class Monster;
-        friend class MonsterFire;
-        friend class MonsterIce;
-        friend class MonsterFireIce;
         friend class MagicCard;
     public:
         Player(string, string);
@@ -32,6 +28,18 @@ class Player{
         void showMonsters() const;
         void addMonster(Monster*);
         void attack(Player*);
+        int getBlood() const{
+            return blood;
+        };
+        void setBlood(int _blood){
+            blood = _blood;
+        }
+        vector<Monster*> &getMonsterList(){
+            return monsterList;
+        }
+        const vector<Monster*> &getMonsterList() const{
+            return monsterList;
+        }
         //isDEAD
         operator bool() const{
             return blood <= 0;

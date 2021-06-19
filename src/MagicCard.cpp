@@ -24,8 +24,9 @@ void MagicCard::makeEffect(Player* myself, Player* victim)const{
 }
 
 void MagicCard::doDecreaseSingleMonsterBlood(Player* victim, unsigned int attackValue)const{
-    if(victim->monsterList.size() != 0){
-        vector<Monster*>::iterator it = victim->monsterList.begin();
+    vector<Monster*> &monsterList = victim->getMonsterList(); 
+    if(monsterList.size() != 0){
+        vector<Monster*>::iterator it = monsterList.begin();
         bool isDead = decreaseMonsterBlood((*it), attackValue);
         //delete this monster
         deleteDeadMonster()
@@ -33,8 +34,9 @@ void MagicCard::doDecreaseSingleMonsterBlood(Player* victim, unsigned int attack
 }
 
 void MagicCard::doDecreaseAllMonstersBlood(Player* victim, unsigned int attackValue)const{
+    vector<Monster*> &monsterList = victim->getMonsterList(); 
     vector<Monster*>::iterator it;
-    for(it=victim->monsterList.begin(); it != victim->monsterList.end();){
+    for(it=monsterList.begin(); it != monsterList.end();){
         bool isDead = decreaseMonsterBlood((*it), attackValue);
         //delete this monster
         deleteDeadMonster()

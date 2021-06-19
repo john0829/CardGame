@@ -3,13 +3,14 @@
 #include "MonsterFireIce.h"
 
 void MonsterFireIce::attack(Player* victim){
-    if(victim->monsterList.size() == 0){
+    vector<Monster*> &monsterList = victim->getMonsterList(); 
+    if(monsterList.size() == 0){
         cout << "ATTACK PLAYER!" << endl;
         decreasePlayerBlood(victim, attackValue);
         return;
     }
     vector<Monster*>::iterator it;
-    for(it = victim->monsterList.begin(); it != victim->monsterList.end();){
+    for(it = monsterList.begin(); it != monsterList.end();){
         bool isDead;
         if(dynamic_cast<MonsterFireIce*>(*it)){
             isDead = decreaseMonsterBlood((*it),fireAttackValue);

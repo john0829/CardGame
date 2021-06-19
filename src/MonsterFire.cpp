@@ -3,8 +3,9 @@
 #include "MonsterFire.h"
 
 void MonsterFire::attack(Player* victim){
-    if(victim->monsterList.size() != 0){
-        vector<Monster*>::iterator it = victim->monsterList.begin();
+    vector<Monster*> &monsterList = victim->getMonsterList(); 
+    if(monsterList.size() != 0){
+        vector<Monster*>::iterator it = monsterList.begin();
         bool isDead;
         if(dynamic_cast<MonsterIce*>(*it)){
             isDead = decreaseMonsterBlood((*it),attackValue*2);

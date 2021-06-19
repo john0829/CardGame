@@ -6,7 +6,7 @@
 if(isDead){ \
     cout << "DEAD:" << (*it)->name << endl; \
     delete (*it); \
-    victim->monsterList.erase(it); \
+    monsterList.erase(it); \
 } \
 else{ \
     ++it; \
