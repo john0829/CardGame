@@ -28,7 +28,7 @@ run:
 test:
 	make clean
 	make
-	valgrind --leak-check=full --show-leak-kinds=all --verbose  --log-file="logfile.out" ./final
+	valgrind --leak-check=full --show-leak-kinds=all --verbose  --log-file="valfile.out" ./final
 
 #RM -> rm -rf
 clean:

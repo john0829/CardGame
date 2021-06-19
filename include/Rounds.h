@@ -18,7 +18,7 @@ class Rounds{
             void showPlayersMonster() const;
             public:
                 Round(Player*, Player*, CardFactory*);
-                bool start();
+                string start();
         };
 
         vector<Round*> roundList;
@@ -26,7 +26,7 @@ class Rounds{
         Player* player2;
         CardFactory *cardFactory;
         int roundCount;
-
+        string winnerName;
 };
 
 #endif

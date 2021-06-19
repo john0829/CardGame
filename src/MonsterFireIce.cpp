@@ -11,8 +11,8 @@ void MonsterFireIce::attack(Player* victim){
     vector<Monster*>::iterator it;
     for(it = victim->monsterList.begin(); it != victim->monsterList.end();){
         bool isDead;
-        if(dynamic_cast<MonsterIce*>(*it)){
-            isDead = decreaseMonsterBlood((*it),fireAttackValue*2);
+        if(dynamic_cast<MonsterFireIce*>(*it)){
+            isDead = decreaseMonsterBlood((*it),fireAttackValue);
             isDead = decreaseMonsterBlood((*it),iceAttackValue);
         }
         else if(dynamic_cast<MonsterFire*>(*it)){
@@ -20,7 +20,8 @@ void MonsterFireIce::attack(Player* victim){
             isDead = decreaseMonsterBlood((*it),iceAttackValue*2);
         }
         else{
-            isDead = decreaseMonsterBlood((*it),attackValue);
+            isDead = decreaseMonsterBlood((*it),fireAttackValue*2);
+            isDead = decreaseMonsterBlood((*it),iceAttackValue);
         }
         //delete this monster
         deleteDeadMonster()

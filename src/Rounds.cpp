@@ -10,7 +10,9 @@ void Rounds::start(){
         cout << "ROUND" << roundCount << ": ";
         Round* r = new Round(player1, player2, cardFactory);
         roundList.push_back(r);
-        if(r->start()){
+        if((winnerName = r->start()) != ""){
+            cout << "Winner is: " << winnerName << "!" << endl;
+            cout << "Game over" << endl;
             break;            
         }
         roundCount++;
@@ -25,7 +27,7 @@ Rounds::~Rounds(){
     delete cardFactory;
 }
 
-bool Rounds::Round::start(){
+string Rounds::Round::start(){
     Player *attacker = nullptr;
     Player *victim = nullptr;
     while (player1->passCardCount <= 0 && player2->passCardCount <= 0){
@@ -64,10 +66,9 @@ bool Rounds::Round::start(){
     showPlayersMonster();
 
     if(*victim)[[unlikely]]{
-        cout << "Game over" << endl;
-        return 1;
+        return attacker->playerName;
     }
-    return 0;
+    return "";
 }
 
 Rounds::Round::Round(Player* p1, Player* p2, CardFactory* cf):player1(p1), player2(p2), cardFactory(cf){
