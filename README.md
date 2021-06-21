@@ -116,7 +116,7 @@ FireIce monster3 500 1500
 Player2: blood is 4000
 =============================================
 ROUND6: player2 round 
-Player2 pop a Card, Id is: 18
+Player2 pop a Card, Id is: 17
 Card name info: magic13 ATTACK_MONSTER_2000
 ATTACK MONSTER! Name is:monster4, blood:1300 -> -700
 DEAD:monster4
