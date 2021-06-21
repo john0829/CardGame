@@ -6,7 +6,7 @@ void MonsterFireIce::attack(Player* victim){
     vector<Monster*> &monsterList = victim->getMonsterList(); 
     if(monsterList.size() == 0){
         cout << "ATTACK PLAYER!" << endl;
-        decreasePlayerBlood(victim, attackValue);
+        decreasePlayerBlood(victim, fireAttackValue + iceAttackValue);
         return;
     }
     vector<Monster*>::iterator it;
@@ -30,5 +30,5 @@ void MonsterFireIce::attack(Player* victim){
 }
 
 void MonsterFireIce::showMonsterInfo() const{
-    cout << "FireIce " << name << " " << blood << " " << attackValue << endl;
+    cout << "FireIce " << name << " " << blood << " " << fireAttackValue + iceAttackValue << endl;
 }

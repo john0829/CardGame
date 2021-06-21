@@ -9,21 +9,21 @@ void MonsterIce::attack(Player* victim){
         vector<Monster*>::iterator it = monsterList.begin();
         bool isDead;
         if(dynamic_cast<MonsterFire*>(*it)){
-            isDead = decreaseMonsterBlood((*it),attackValue*2);
+            isDead = decreaseMonsterBlood((*it),iceAttackValue*2);
             // cout << "@@@@@@@@@@" << "different type!" << endl;
         }
         else{
-            isDead = decreaseMonsterBlood((*it),attackValue);
+            isDead = decreaseMonsterBlood((*it),iceAttackValue);
         }
         //delete this monster
         deleteDeadMonster()
     }
     else{
         cout << "ATTACK PLAYER!" << endl;
-        decreasePlayerBlood(victim, attackValue);
+        decreasePlayerBlood(victim, iceAttackValue);
     }
 }
 
 void MonsterIce::showMonsterInfo() const{
-    cout << "Ice " << name << " " << blood << " " << attackValue << endl;
+    cout << "Ice " << name << " " << blood << " " << iceAttackValue << endl;
 }

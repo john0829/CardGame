@@ -21,7 +21,7 @@ class Monster{
         int attackValue;
         friend class Player;
         friend class MagicCard;
-        Monster(string _name, int _blood, int _attackValue):name(_name), blood(_blood), attackValue(_attackValue){};
+        Monster(string _name, int _blood):name(_name), blood(_blood), attackValue(0){};
         Monster(){};
         virtual void showMonsterInfo() const{
             cout << name << " " << blood << " " << attackValue << endl;
