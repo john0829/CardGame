@@ -5,6 +5,9 @@ Player::Player(string sourceFilePath, string pN):blood(BLOOD_PLAYER),passCardCou
     CardFactory *cardFactory = new CardFactory(sourceFilePath);
     while(*cardFactory){
         const Card* card = cardFactory->generateCard();
+        if(!card){
+            break;
+        }
         cardList.push_back(card);
     }
     delete cardFactory;
@@ -49,6 +52,11 @@ void Player::readPlayCardSequence(string sourceFilePath){
 }
 
 const Card* Player::playCard(){
+    //show card information
+    // for(auto &p :cardList){
+    //     cout << cardList.size() << endl;
+    //     cout << p->name << endl;
+    // }
     //no playcard sequence
     if(playCardSequenceList.size() == 0){
         return nullptr;

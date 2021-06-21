@@ -5,7 +5,6 @@ CardFactory::CardFactory(string sourceFilePath){
     file.open(sourceFilePath, ios::in);
     file >> cardCount;
     getline(file, line);
-    
     if(!file){
         cout << "file path is not found." << endl;
         exit(1);
@@ -23,9 +22,10 @@ Card* CardFactory::generateCard(){
         MonsterCard* card = new MonsterCard(file);
         return card;
     }
-    else{
+    else if(!type.empty()){
         MagicCard* card = new MagicCard(file);
         return card;
     }
+    return nullptr;
 }
 
