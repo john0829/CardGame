@@ -23,7 +23,12 @@ final: $(OBJ_FILES) $(INC_FILES)
 run: 
 	make clean
 	make
-	./final > out.log
+	./final ./input/cards.txt ./input/p1.txt ./input/p2.txt ./input/seq1.txt ./input/seq2.txt > out.log
+
+run2: 
+	make clean
+	make
+	./final ./input2/cards.txt ./input2/p1.txt ./input2/p2.txt ./input2/seq1.txt ./input2/seq2.txt > out2.log
 
 test:
 	make clean

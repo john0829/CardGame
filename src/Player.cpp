@@ -44,8 +44,7 @@ void Player::readPlayCardSequence(string sourceFilePath){
         exit(1);
     }
     int num;
-    while(file){
-        file >> num;
+    while(file >> num){
         playCardSequenceList.push_back(num);
     }
     file.close();
@@ -53,10 +52,10 @@ void Player::readPlayCardSequence(string sourceFilePath){
 
 const Card* Player::playCard(){
     //show card information
-    // for(auto &p :cardList){
-    //     cout << cardList.size() << endl;
-    //     cout << p->name << endl;
-    // }
+    for(auto &p :cardList){
+        cout << cardList.size() << endl;
+        cout << p->name << endl;
+    }
     //no playcard sequence
     if(playCardSequenceList.size() == 0){
         return nullptr;

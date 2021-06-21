@@ -4,14 +4,14 @@
 #include "Rounds.h"
 #include "Config.h"
 
-int main(){
-    Player* p1 = new Player("./input/p1.txt", "Player1");
-    Player* p2 = new Player("./input/p2.txt", "Player2");
+int main(int argc, char **argv){
+    Player* p1 = new Player(argv[2], "Player1");
+    Player* p2 = new Player(argv[3], "Player2");
 
-    p1->readPlayCardSequence("./input/seq1.txt");
-    p2->readPlayCardSequence("./input/seq2.txt");
+    p1->readPlayCardSequence(argv[4]);
+    p2->readPlayCardSequence(argv[5]);
 
-    Rounds *rounds = new Rounds(p1, p2, "./input/cards.txt");
+    Rounds *rounds = new Rounds(p1, p2, argv[1]);
     cout << "rounds start!" << endl;
     rounds->start();
     delete rounds;
