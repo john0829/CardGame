@@ -3,8 +3,9 @@
 #include "Monster.h"
 
 class MonsterIce : public virtual Monster{
-    public:
+    protected:
         int iceAttackValue;
+    public:
         void attack(Player*);
         MonsterIce(string _name, int _blood, int _attackValue):Monster(_name,_blood){iceAttackValue = _attackValue;};
         MonsterIce(){};
