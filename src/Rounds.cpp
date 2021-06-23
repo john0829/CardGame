@@ -58,11 +58,9 @@ string Rounds::Round::start(){
     delete card;
     attacker->attack(victim);
 
-
-
     //give player a card
     attacker->getOneCard(cardFactory->generateCard());
-
+    
     showPlayersMonster();
 
     if(*victim)[[unlikely]]{

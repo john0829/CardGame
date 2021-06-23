@@ -3,12 +3,12 @@
 CardFactory::CardFactory(string sourceFilePath){
     string line;
     file.open(sourceFilePath, ios::in);
-    file >> cardCount;
-    getline(file, line);
     if(!file){
-        cout << "file path is not found." << endl;
+        cerr << "file path is not found." << endl;
         exit(1);
     }
+    file >> cardCount;
+    getline(file, line);
 }
 
 CardFactory::~CardFactory(){
