@@ -20,7 +20,6 @@ class Rounds{
                 Round(Player*, Player*, CardFactory*);
                 string start();
         };
-
         vector<Round*> roundList;
         Player* player1;
         Player* player2;

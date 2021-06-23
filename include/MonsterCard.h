@@ -15,7 +15,6 @@ class MonsterCard: public Card{
             Card::showCardInfo();
             cout << type <<" " << name << " " << blood << " " << attack << endl;
         }
-
         void makeEffect(Player*, Player*) const;
         ~MonsterCard() = default;
 };
