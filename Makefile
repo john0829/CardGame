@@ -33,7 +33,7 @@ run2:
 test:
 	make clean
 	make
-	valgrind --leak-check=full --show-leak-kinds=all --verbose  --log-file="valfile.log" ./final
+	valgrind --leak-check=full --show-leak-kinds=all --verbose  --log-file="valfile.log" ./final ./input/cards.txt ./input/p1.txt ./input/p2.txt ./input/seq1.txt ./input/seq2.txt
 
 #RM -> rm -rf
 clean:
